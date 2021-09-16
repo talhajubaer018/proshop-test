@@ -41,7 +41,7 @@ const OrderScreen = ({ match, history }) => {
 
   useEffect(() => {
     if(!userInfo){
-      history.psuh('/login')
+      history.push('/login')
     }
 
     const addPayPalScript = async () => {
@@ -70,7 +70,7 @@ const OrderScreen = ({ match, history }) => {
         setSdkReady(true)
       }
 
-  }, [dispatch, orderId, successPay, order, successDeliver])
+  }, [dispatch, history, userInfo, orderId, successPay, order, successDeliver])
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult))
